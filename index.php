@@ -1,16 +1,18 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-$config = require __DIR__ . '/config/config.php';
 
+use App\Config\Config;
 use App\Core\Database;
 
+$config = Config::db();
+
 $db = Database::connect(
-    $config['db']['host'],
-    $config['db']['port'],
-    $config['db']['name'],
-    $config['db']['user'],
-    $config['db']['password']
+    $config['host'],
+    $config['port'],
+    $config['name'],
+    $config['user'],
+    $config['password']
 );
 
 $stmt = $db->query('SELECT 1');
