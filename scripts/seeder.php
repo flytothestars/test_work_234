@@ -38,7 +38,6 @@ $images = [
     'https://i.pinimg.com/originals/75/5c/8a/755c8a06c54f0d9b62655f7c6d7c3afc.jpg?nii=t',
     'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/50_Shades_Of_Blue_%28187611681%29.jpeg/1280px-50_Shades_Of_Blue_%28187611681%29.jpeg',
     'https://www.onetwotrip.com/ru/blog/wp-content/uploads/2024/03/9-13.jpg',
-    'https://yandex-images.clstorage.net/vbB472X39/05a587jK7/3uIf8FjeBCkhfZ7uEzqBSrQ1hRUe4DvffTnD3XByOaVTwk9TUFJD7gLrNJU9TqXBseM6quy4U6U0_9b29Ioqi6qmb61RKpgUbZmqBtZWmG6tNa1RFvRjn30pl5CxK3CxKvsOVkU_T4t_slzhTW6IAAAC-2dBQc49wHs7ppTmAv_vmn7xmR8Aka11kj5aXomWRdHlnRo4kw4twfdYpDZp2KfCv5e8lq46Gl-0iaHS_ODIAkfLtcWuIfQ_T5p0ZhpnXmY2wbk2DC0h4YaSWlqdbtmltRUqtDd2kc3TwNCmpZB3CodP2N4C6s5fMG1F6gRc9No3U-XBHgFQf0dmMAL67xqSnhVhdmThAUm-YvoG_frFrQVNutxLnkmpM6zo1ulQ_17Lq8hibgKaH_yJEdrMLGzm0ze1GcYRuPsbfpw6qmfqbkoNQfqo5SkZSrLaFv3ibe1Fxeqscw4BRYswwCJNbD8qPxegvj56Dl9oiV0qnLDsjltHlaWWHVCXN4YwfspDGhYy8QUmRHU5uaZCRsY5BhHFTYGCzMsm2bE31IBGvfDDIo_bmCbmbmJjJMkhLqg4yA63O_XlLiXMU89e8Mpy16qe-iXt_mjV_eEKYko2BfoplUXdungLOgnFS6hodiHAQ7r_S0RSBmYGj4Bx0RLAINQOd2PZvbqpZGsjekx-Xj8-GhJdPfYQNWEFjhJKUrmaKb39uXaUB_ZZQWPYAMoRPHPG_3tQ7h7mih8odaFC9GB4onN7gd2yDVTHy27c8jpb3q4WrfHutCl1uXoK1g4NjnG5baHmtAf6yR0_zNTK-eTTnkf_rMpSznoXfBFhQkBkmCYbz22hDg3Mb1eamJqGU56ulh1JusTNBeVyBjraqTrd7XndhkATCtVFdzyYhnnY-75Dc4TCagKmc_yJZX64yCA-c8NV6e79WD8LkvCagvuqDtrVTcJcbTmJ-v5iylHmzZGhiYKs_-JlObfU5Aaw',
     'https://i.pinimg.com/474x/0e/4f/6c/0e4f6ca35bc89794e096bdf3ef03133d.jpg?nii=t',
 ];
 
@@ -70,7 +69,7 @@ for ($i = 1; $i <= $articleCount; $i++) {
         'title'        => "Lorem ipsum dolor sit amet #{$i}",
         'description'  => $lead,
         'body'         => $body,
-        'image'        => $images[random_int(0, 5)],
+        'image'        => $images[random_int(0, 4)],
         'views'        => random_int(0, 500),
         'published_at' => $publishedAt,
     ]);
