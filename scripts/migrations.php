@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use App\Core\Database;
 use App\Config\Config;
 
@@ -14,4 +16,4 @@ $pdo    = Database::connect(
 );
 
 echo 'start migraion';
-$pdo->exec(file_get_contents(__DIR__ . '/../../schema.sql'));
+$pdo->exec(file_get_contents(__DIR__ . '/../schema.sql'));
