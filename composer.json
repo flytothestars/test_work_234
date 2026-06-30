@@ -1,0 +1,15 @@
+{
+    "name": "king/test_work_234",
+    "autoload": {
+        "psr-4": {
+            "King\\TestWork234\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Djoni",
+            "email": "alexgen464@gmail.com"
+        }
+    ],
+    "require": {}
+}
