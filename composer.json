@@ -12,5 +12,7 @@
             "email": "alexgen464@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "nesbot/carbon": "^3.0"
+    }
 }
