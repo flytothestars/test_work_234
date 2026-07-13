@@ -4,18 +4,22 @@ require __DIR__ . '/vendor/autoload.php';
 
 use App\Config\Config;
 use App\Core\Database;
+use App\Controller\HomeController;
 
 $config = Config::db();
 
-$db = Database::connect(
-    $config['host'],
-    $config['port'],
-    $config['name'],
-    $config['user'],
-    $config['password']
-);
+try {
+    $db = Database::connect(
+        $config['host'],
+        $config['port'],
+        $config['name'],
+        $config['user'],
+        $config['password']
+    );
+} catch (Throwable $e) {
+    echo 'Ошибка базы данных: ' . $e->getMessage();
+    exit;
+}
 
-$stmt = $db->query('SELECT 1');
-$result = $stmt->fetchColumn();
-
-echo $result;
+$home = new HomeController();
+$home->index($db);
