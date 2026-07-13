@@ -25,10 +25,9 @@ try {
     exit;
 }
 
-$home = new HomeController();
+$view = new View();
+
+$home = new HomeController($view);
 $category = new CategoryController();
 $article = new ArticleController();
 $home->index($db);
-
-$view = new View();
-$view->render('home.tpl', ['title' => 'Hello World asdasd asd']);
