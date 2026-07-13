@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.8.4, created on 2026-07-13 10:03:18
+/* Smarty version 5.8.4, created on 2026-07-13 10:22:47
   from 'file:layouts.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.8.4',
-  'unifunc' => 'content_6a54b7e67d4367_46239151',
+  'unifunc' => 'content_6a54bc772603d3_07199074',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7c6f3490a35aa2bf4254b1a9b7b3957ce4ebfc55' => 
     array (
       0 => 'layouts.tpl',
-      1 => 1783936329,
+      1 => 1783938086,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_6a54b7e67d4367_46239151 (\Smarty\Template $_smarty_tpl) {
+function content_6a54bc772603d3_07199074 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/var/www/html/view';
 $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 ?>
@@ -30,23 +30,34 @@ $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
     <meta charset="utf-8">
     <title><?php echo $_smarty_tpl->getValue('title');?>
 </title>
+    <link rel="stylesheet" href="/public/assets/css/style.css">
+
 </head>
 <body>
-    <?php 
-$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_8346908686a54b7e67d2196_03155130', "content");
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="/">Post<span>.</span></a>
+        </div>
+    </header>
+    <main class="container">
+        <?php 
+$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_18851524196a54bc7725fb84_38108651', "content");
 ?>
 
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            Copyright @2026. All Rights Reserved.
+        </div>
+    </footer>
 </body>
 </html>
 <?php }
 /* {block "content"} */
-class Block_8346908686a54b7e67d2196_03155130 extends \Smarty\Runtime\Block
+class Block_18851524196a54bc7725fb84_38108651 extends \Smarty\Runtime\Block
 {
 public function callBlock(\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/var/www/html/view';
-?>
-
-    <?php
 }
 }
 /* {/block "content"} */
