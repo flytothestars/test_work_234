@@ -3,7 +3,7 @@
         'name' => 'king/test_work_234',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a10299ad0b87363c078efbb2d4e7b40d1a347c21',
+        'reference' => '951d539e77157380661469e38b1b748539374488',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'king/test_work_234' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a10299ad0b87363c078efbb2d4e7b40d1a347c21',
+            'reference' => '951d539e77157380661469e38b1b748539374488',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -51,6 +51,15 @@
             'provided' => array(
                 0 => '1.0',
             ),
+        ),
+        'smarty/smarty' => array(
+            'pretty_version' => 'v5.8.4',
+            'version' => '5.8.4.0',
+            'reference' => '94a27cbbc7820198d7adc17a2be8d457fb267753',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../smarty/smarty',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'symfony/clock' => array(
             'pretty_version' => 'v8.1.0',

@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 $config = Config::db();
 
-$pdo    = Database::connect(
+$pdo = Database::connect(
     $config['host'],
     $config['port'],
     $config['name'],

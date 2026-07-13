@@ -10,6 +10,7 @@ class ComposerStaticInit97b9d362ed2e2b7c923589bc1d2cf83a
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '2203a247e6fda86070a5e4e07aed533a' => __DIR__ . '/..' . '/symfony/clock/Resources/now.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
+        'c15d4a1253e33e055d05e547c61dcb71' => __DIR__ . '/..' . '/smarty/smarty/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -19,6 +20,7 @@ class ComposerStaticInit97b9d362ed2e2b7c923589bc1d2cf83a
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Clock\\' => 24,
+            'Smarty\\' => 7,
         ),
         'P' => 
         array (
@@ -55,6 +57,10 @@ class ComposerStaticInit97b9d362ed2e2b7c923589bc1d2cf83a
         'Symfony\\Component\\Clock\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/clock',
+        ),
+        'Smarty\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/smarty/smarty/src',
         ),
         'Psr\\Clock\\' => 
         array (
