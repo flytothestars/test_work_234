@@ -8,7 +8,7 @@ use App\Controller\HomeController;
 use App\Controller\ArticleController;
 use App\Controller\CategoryController;
 use Smarty\Smarty;
-
+use App\Core\View;
 
 $config = Config::db();
 
@@ -30,16 +30,5 @@ $category = new CategoryController();
 $article = new ArticleController();
 $home->index($db);
 
-$templateDir = __DIR__ . '/view/';
-$templateCompileDir = __DIR__ . '/view_c/';
-$configDir = __DIR__ . '/config/';
-$cacheDir = __DIR__ . '/cache/';
-
-$smarty = new Smarty();
-$smarty->setTemplateDir($templateDir);
-$smarty->setCompileDir($templateCompileDir);
-$smarty->setConfigDir($configDir);
-$smarty->setCacheDir($cacheDir);
-
-$smarty->assign('title', 'Hello World');
-$smarty->display('home.tpl');
+$view = new View();
+$view->render('home.tpl', ['title' => 'Hello World asdasd asd']);
