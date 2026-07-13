@@ -9,6 +9,8 @@ use App\Controller\ArticleController;
 use App\Controller\CategoryController;
 use Smarty\Smarty;
 use App\Core\View;
+use App\Repository\CategoryRepository;
+use App\Repository\ArticleRepository;
 
 $config = Config::db();
 
@@ -26,8 +28,9 @@ try {
 }
 
 $view = new View();
-
-$home = new HomeController($view);
+$categoryRepository = new CategoryRepository($db);
+$articleRepository = new ArticleRepository($db);
+$home = new HomeController($view, $categoryRepository, $articleRepository);
 $category = new CategoryController();
 $article = new ArticleController();
 $home->index($db);
