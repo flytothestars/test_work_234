@@ -4,6 +4,8 @@ namespace App\Config;
 
 class Config
 {
+    public const PAGINATION_LIMIT = 6; 
+    
     public static function db(): array
     {
         return [

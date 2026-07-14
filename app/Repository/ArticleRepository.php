@@ -8,6 +8,12 @@ use PDO;
 
 final class ArticleRepository
 {
+    public const SORTS = [
+        'newest' => 'a.published_at DESC',
+        'oldest' => 'a.published_at ASC',
+        'views'  => 'a.views DESC, a.published_at DESC',
+    ];
+    
     public function __construct(private readonly PDO $pdo)
     {
     }
@@ -39,15 +45,21 @@ final class ArticleRepository
         return $stmt->fetchAll();
     }
 
-    public function byCategory(int $categoryId): array
+    public function byCategory(int $categoryId, string $sortKey, int $limit, int $offset): array
     {
+        $orderBy = self::SORTS[$sortKey] ?? self::SORTS['newest'];
+
         $sql = "SELECT a.*
                 FROM articles a
                 JOIN article_category ac ON ac.article_id = a.id
-                WHERE ac.category_id = :cid";
+                WHERE ac.category_id = :cid
+                ORDER BY {$orderBy}
+                LIMIT :limit OFFSET :offset";
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue('cid', $categoryId, PDO::PARAM_INT);
+        $stmt->bindValue('limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue('offset', $offset, PDO::PARAM_INT);
         $stmt->execute();
 
         return $stmt->fetchAll();
@@ -93,5 +105,15 @@ final class ArticleRepository
     {
         $stmt = $this->pdo->prepare('UPDATE articles SET views = views + 1 WHERE id = :id');
         $stmt->execute(['id' => $id]);
+    }
+
+    public function countByCategory(int $categoryId): int
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT COUNT(*) FROM article_category WHERE category_id = :cid'
+        );
+        $stmt->execute(['cid' => $categoryId]);
+
+        return (int) $stmt->fetchColumn();
     }
 }

@@ -32,7 +32,7 @@ $categoryRepository = new CategoryRepository($db);
 $articleRepository = new ArticleRepository($db);
 
 $home = new HomeController($view, $categoryRepository, $articleRepository);
-$category = new CategoryController($view, $categoryRepository, $articleRepository);
+$category = new CategoryController($view, $categoryRepository, $articleRepository, Config::PAGINATION_LIMIT);
 $article = new ArticleController($view, $articleRepository);
 
 $router = new Router();
