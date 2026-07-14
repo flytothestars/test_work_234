@@ -1,39 +1,40 @@
 <?php
-/* Smarty version 5.8.4, created on 2026-07-14 05:03:31
+/* Smarty version 5.8.4, created on 2026-07-14 06:17:38
   from 'file:article.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.8.4',
-  'unifunc' => 'content_6a55c3237e3719_87623977',
+  'unifunc' => 'content_6a55d482904ea7_70674791',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '79acc07da1711601315d25cbe2a42e5c7d7d0ed2' => 
     array (
       0 => 'article.tpl',
-      1 => 1784005411,
+      1 => 1784009853,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:card.tpl' => 1,
   ),
 ))) {
-function content_6a55c3237e3719_87623977 (\Smarty\Template $_smarty_tpl) {
+function content_6a55d482904ea7_70674791 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/var/www/html/view';
 $_smarty_tpl->getInheritance()->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_6418398126a55c3237dab62_16482624', "content");
+$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_18094594606a55d4828f7036_98487253', "content");
 ?>
 
 <?php $_smarty_tpl->getInheritance()->endChild($_smarty_tpl, "layouts.tpl", $_smarty_current_dir);
 }
 /* {block "content"} */
-class Block_6418398126a55c3237dab62_16482624 extends \Smarty\Runtime\Block
+class Block_18094594606a55d4828f7036_98487253 extends \Smarty\Runtime\Block
 {
 public function callBlock(\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/var/www/html/view';
@@ -79,7 +80,25 @@ $_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
 
         </div>
     </article>
-<?php
+
+    <?php if ($_smarty_tpl->getValue('similar')) {?>
+        <section class="similar">
+            <h2 class="similar__title">Похожие статьи</h2>
+            <div class="grid">
+                <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('similar'), 'article');
+$foreach1DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('article')->value) {
+$foreach1DoElse = false;
+?>
+                    <?php $_smarty_tpl->renderSubTemplate("file:card.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
+?>
+                <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
+            </div>
+        </section>
+    <?php }
 }
 }
 /* {/block "content"} */

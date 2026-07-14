@@ -23,10 +23,14 @@ class ArticleController
             return;
         }
 
+        $this->articles->incrementViews($id);
+        $article['views'] = (int) $article['views'] + 1;
+        
         $this->view->render('article.tpl', [
             'page_title' => $article['title'],
             'article'    => $article,
-            'categories' => $this->articles->categoriesOf($id)
+            'categories' => $this->articles->categoriesOf($id),
+            'similar'    => $this->articles->similar($id, 3)
         ]);
     }
 }

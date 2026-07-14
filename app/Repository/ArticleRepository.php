@@ -66,4 +66,32 @@ final class ArticleRepository
 
         return $stmt->fetchAll();
     }
+
+    public function similar(int $articleId, int $limit): array
+    {
+        $sql = 'SELECT a.*, COUNT(*) AS shared
+                FROM articles a
+                JOIN article_category ac ON ac.article_id = a.id
+                WHERE ac.category_id IN (
+                          SELECT category_id FROM article_category WHERE article_id = :aid
+                      )
+                  AND a.id <> :aid2
+                GROUP BY a.id
+                ORDER BY shared DESC, a.published_at DESC
+                LIMIT :limit';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue('aid', $articleId, PDO::PARAM_INT);
+        $stmt->bindValue('aid2', $articleId, PDO::PARAM_INT);
+        $stmt->bindValue('limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    public function incrementViews(int $id): void
+    {
+        $stmt = $this->pdo->prepare('UPDATE articles SET views = views + 1 WHERE id = :id');
+        $stmt->execute(['id' => $id]);
+    }
 }

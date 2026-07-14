@@ -26,4 +26,15 @@
             {$article.body|escape|nl2br}
         </div>
     </article>
+
+    {if $similar}
+        <section class="similar">
+            <h2 class="similar__title">Похожие статьи</h2>
+            <div class="grid">
+                {foreach $similar as $article}
+                    {include file="card.tpl"}
+                {/foreach}
+            </div>
+        </section>
+    {/if}
 {/block}
