@@ -5,7 +5,7 @@
         <section class="category-block">
             <div class="category-block__head">
                 <h2 class="category-block__title">{$block.category.name|escape}</h2>
-                <a class="category-block__all" href="#">View All</a>
+                <a class="category-block__all" href="/category/{$block.category.id}">View All</a>
             </div>
 
             <div class="grid">

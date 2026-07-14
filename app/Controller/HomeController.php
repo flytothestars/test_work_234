@@ -12,12 +12,9 @@ class HomeController
         private View $view,
         private readonly CategoryRepository $categories,
         private readonly ArticleRepository $articles
+    ){}
 
-        )
-    {
-    }
-
-    public function index($db)
+    public function index()
     {
         $blocks = [];
 

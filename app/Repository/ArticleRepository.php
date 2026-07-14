@@ -38,4 +38,32 @@ final class ArticleRepository
 
         return $stmt->fetchAll();
     }
+
+    public function byCategory(int $categoryId): array
+    {
+        $sql = "SELECT a.*
+                FROM articles a
+                JOIN article_category ac ON ac.article_id = a.id
+                WHERE ac.category_id = :cid";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue('cid', $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    public function categoriesOf(int $articleId): array
+    {
+        $sql = 'SELECT c.*
+                FROM categories c
+                JOIN article_category ac ON ac.category_id = c.id
+                WHERE ac.article_id = :aid
+                ORDER BY c.name';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['aid' => $articleId]);
+
+        return $stmt->fetchAll();
+    }
 }
