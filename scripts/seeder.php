@@ -16,6 +16,12 @@ $pdo = Database::connect(
     $config['password']
 );
 
+$already = (int) $pdo->query('SELECT COUNT(*) FROM categories')->fetchColumn();
+if ($already > 0) {
+    echo "seeder: данные уже есть, пропускаю\n";
+    return;
+}
+
 $categories = [
     ['Технология', 'samsung iphone android'],
     ['Еда', 'пицца картоп бургер'],
@@ -60,7 +66,7 @@ $articeCat = $pdo->prepare(
     'INSERT IGNORE INTO article_category (article_id, category_id) VALUES (:aid, :cid)'
 );
 
-$articleCount = 30;
+$articleCount = 50;
 for ($i = 1; $i <= $articleCount; $i++) {
     $daysAgo      = $articleCount - $i;
     $publishedAt  = Carbon::now()->subDays($daysAgo)->format('Y-m-d H:i:s');

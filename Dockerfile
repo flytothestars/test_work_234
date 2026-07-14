@@ -17,3 +17,8 @@ COPY . .
 RUN composer install --no-interaction --prefer-dist \
     && composer build-css \
     && chown -R www-data:www-data /var/www/html
+
+RUN cp scripts/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh \
+    && chmod +x /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["apache2-foreground"]
